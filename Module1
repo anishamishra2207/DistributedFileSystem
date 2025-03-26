@@ -64,3 +64,20 @@ def read_file(self, directory, filename):
             print(f"File '{filename}' updated in '{dir_path}'.")
         else:
             print(f"File '{filename}' does not exist in '{dir_path}'.")
+
+def delete_file(self, directory, filename):
+        dir_path = os.path.join(self.root_directory, directory) if directory else self.root_directory
+        filepath = os.path.join(dir_path, filename)
+        try:
+            os.remove(filepath)
+            print(f"File '{filename}' deleted from '{dir_path}'.")
+        except FileNotFoundError:
+            print(f"File '{filename}' not found in '{dir_path}'.")
+    
+    def list_files(self, directory=""):
+        # List files in the given directory; if none is provided, list in root
+        dir_path = os.path.join(self.root_directory, directory) if directory else self.root_directory
+        files = [f for f in os.listdir(dir_path)
+                 if os.path.isfile(os.path.join(dir_path, f))]
+        print(f"Files in '{dir_path}': {files}")
+        return files
