@@ -42,3 +42,25 @@ class FileManager:
         with open(filepath, 'w') as f:
             f.write(content)
         print(f"File '{filename}' created in '{dir_path}'.")
+
+def read_file(self, directory, filename):
+        dir_path = os.path.join(self.root_directory, directory) if directory else self.root_directory
+        filepath = os.path.join(dir_path, filename)
+        try:
+            with open(filepath, 'r') as f:
+                content = f.read()
+            print(f"Content of '{filename}' in '{dir_path}':\n{content}")
+            return content
+        except FileNotFoundError:
+            print(f"File '{filename}' not found in '{dir_path}'.")
+            return None
+    
+    def update_file(self, directory, filename, new_content):
+        dir_path = os.path.join(self.root_directory, directory) if directory else self.root_directory
+        filepath = os.path.join(dir_path, filename)
+        if os.path.exists(filepath):
+            with open(filepath, 'a') as f:
+                f.write(new_content)
+            print(f"File '{filename}' updated in '{dir_path}'.")
+        else:
+            print(f"File '{filename}' does not exist in '{dir_path}'.")
