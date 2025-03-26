@@ -16,3 +16,18 @@ class FileManager:
             print(f"Directory '{directory_name}' created under '{self.root_directory}'.")
         else:
             print(f"Directory '{directory_name}' already exists.")
+
+ def list_directories(self):
+        # List only directories inside the root_directory
+        dirs = [d for d in os.listdir(self.root_directory)
+                if os.path.isdir(os.path.join(self.root_directory, d))]
+        print(f"Directories in '{self.root_directory}': {dirs}")
+        return dirs
+    
+    def delete_directory(self, directory_name):
+        dir_path = os.path.join(self.root_directory, directory_name)
+        if os.path.exists(dir_path) and os.path.isdir(dir_path):
+            shutil.rmtree(dir_path)
+            print(f"Directory '{directory_name}' deleted from '{self.root_directory}'.")
+        else:
+            print(f"Directory '{directory_name}' does not exist.")
