@@ -99,3 +99,41 @@ def interactive_file_manager():
         print("8: List files")
         print("9: Exit")
         choice = input("Enter your choice (1-9): ")
+
+if choice == "1":
+            dirname = input("Enter directory name to create: ")
+            fm.create_directory(dirname)
+        elif choice == "2":
+            fm.list_directories()
+        elif choice == "3":
+            dirname = input("Enter directory name to delete: ")
+            fm.delete_directory(dirname)
+        elif choice == "4":
+            dirname = input("Enter directory (leave blank for root): ")
+            filename = input("Enter filename to create: ")
+            content = input("Enter content for the file: ")
+            fm.create_file(dirname, filename, content)
+        elif choice == "5":
+            dirname = input("Enter directory (leave blank for root): ")
+            filename = input("Enter filename to read: ")
+            fm.read_file(dirname, filename)
+        elif choice == "6":
+            dirname = input("Enter directory (leave blank for root): ")
+            filename = input("Enter filename to update: ")
+            new_content = input("Enter content to append: ")
+            fm.update_file(dirname, filename, new_content)
+        elif choice == "7":
+            dirname = input("Enter directory (leave blank for root): ")
+            filename = input("Enter filename to delete: ")
+            fm.delete_file(dirname, filename)
+        elif choice == "8":
+            dirname = input("Enter directory (leave blank for root): ")
+            fm.list_files(dirname)
+        elif choice == "9":
+            print("Exiting interactive session.")
+            break
+        else:
+            print("Invalid choice. Please select a valid option.")
+
+# Uncomment the next line to run the interactive file manager:
+interactive_file_manager()
