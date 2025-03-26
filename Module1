@@ -81,3 +81,21 @@ def delete_file(self, directory, filename):
                  if os.path.isfile(os.path.join(dir_path, f))]
         print(f"Files in '{dir_path}': {files}")
         return files
+
+# Interactive demonstration of the FileManager with directory support
+def interactive_file_manager():
+    root_dir = "distributed_fs"
+    fm = FileManager(root_dir)
+    
+    while True:
+        print("\nOptions:")
+        print("1: Create directory")
+        print("2: List directories")
+        print("3: Delete directory")
+        print("4: Create file")
+        print("5: Read file")
+        print("6: Update file")
+        print("7: Delete file")
+        print("8: List files")
+        print("9: Exit")
+        choice = input("Enter your choice (1-9): ")
