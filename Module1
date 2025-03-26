@@ -1,0 +1,18 @@
+import os
+import shutil
+
+class FileManager:
+    def __init__(self, root_directory):
+        self.root_directory = root_directory
+        # Create the root directory if it doesn't exist
+        if not os.path.exists(self.root_directory):
+            os.makedirs(self.root_directory)
+    
+    # --- Directory Management ---
+    def create_directory(self, directory_name):
+        dir_path = os.path.join(self.root_directory, directory_name)
+        if not os.path.exists(dir_path):
+            os.makedirs(dir_path)
+            print(f"Directory '{directory_name}' created under '{self.root_directory}'.")
+        else:
+            print(f"Directory '{directory_name}' already exists.")
