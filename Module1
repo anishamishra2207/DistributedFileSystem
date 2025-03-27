@@ -16,8 +16,8 @@ class FileManager:
             print(f"Directory '{directory_name}' created under '{self.root_directory}'.")
         else:
             print(f"Directory '{directory_name}' already exists.")
-
- def list_directories(self):
+    
+    def list_directories(self):
         # List only directories inside the root_directory
         dirs = [d for d in os.listdir(self.root_directory)
                 if os.path.isdir(os.path.join(self.root_directory, d))]
@@ -31,8 +31,8 @@ class FileManager:
             print(f"Directory '{directory_name}' deleted from '{self.root_directory}'.")
         else:
             print(f"Directory '{directory_name}' does not exist.")
-
-# --- File Management ---
+    
+    # --- File Management ---
     def create_file(self, directory, filename, content=""):
         # If a directory is provided, use it; otherwise, use the root directory
         dir_path = os.path.join(self.root_directory, directory) if directory else self.root_directory
@@ -42,8 +42,8 @@ class FileManager:
         with open(filepath, 'w') as f:
             f.write(content)
         print(f"File '{filename}' created in '{dir_path}'.")
-
-def read_file(self, directory, filename):
+    
+    def read_file(self, directory, filename):
         dir_path = os.path.join(self.root_directory, directory) if directory else self.root_directory
         filepath = os.path.join(dir_path, filename)
         try:
@@ -64,8 +64,8 @@ def read_file(self, directory, filename):
             print(f"File '{filename}' updated in '{dir_path}'.")
         else:
             print(f"File '{filename}' does not exist in '{dir_path}'.")
-
-def delete_file(self, directory, filename):
+    
+    def delete_file(self, directory, filename):
         dir_path = os.path.join(self.root_directory, directory) if directory else self.root_directory
         filepath = os.path.join(dir_path, filename)
         try:
@@ -99,8 +99,8 @@ def interactive_file_manager():
         print("8: List files")
         print("9: Exit")
         choice = input("Enter your choice (1-9): ")
-
-if choice == "1":
+        
+        if choice == "1":
             dirname = input("Enter directory name to create: ")
             fm.create_directory(dirname)
         elif choice == "2":
